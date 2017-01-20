@@ -62,10 +62,9 @@ def new_post():
 
         gif_url = giphy_translate(translate_text)
         if not gif_url:
-            raise Exception('No gif url found for `{}`'.format(translate_text))
+            raise Exception('No gif found for `{}`'.format(translate_text))
 
-        resp_data['text'] = '''`{}` searched for {}
-    {}'''.format(data.get('user_name', 'unknown').title(), translate_text, gif_url)
+        resp_data['text'] = '{}'.format(translate_text)
     except Exception as err:
         msg = err.message
         logging.error('unable to handle new post :: {}'.format(msg))
